@@ -208,40 +208,40 @@ const ANOTHER_DATASET = [
 //  5.
 //  6. Bucket sort
 function swap(array, i, j) {
-    const tmp = array[i];
-    array[i] = array[j];
-    array[j] = tmp;
-};
+  const tmp = array[i];
+  array[i] = array[j];
+  array[j] = tmp;
+}
 
 function bucketSort(array) {
-    let swaps = 0;
-    for (let i = 0; i < array.length - 1; i++) {
-        if (array[i] > array[i + array.length]) {
-            swap(array, i, i + 1);
-            swaps++;
-        }
+  let swaps = 0;
+  for (let i = 0; i < array.length - 1; i++) {
+    if (array[i] > array[i + array.length]) {
+      swap(array, i, i + 1);
+      swaps++;
     }
+  }
 
-    if (swaps > 0) {
-        return bucketSort(array);
-    }
-    return array;
-};
+  if (swaps > 0) {
+    return bucketSort(array);
+  }
+  return array;
+}
 function randy(array) {
-    let swaps = 0;
-    let ran = Math.floor((Math.random() * array.length -1)+ 1);
-    for (let i = 0; i < array.length - 1; i++) {
-        swap(array, i, ran);
-        swaps++;
-    }
+  let swaps = 0;
+  let ran = Math.floor(Math.random() * array.length - 1 + 1);
+  for (let i = 0; i < array.length - 1; i++) {
+    swap(array, i, ran);
+    swaps++;
+  }
 
-    if (swaps > 0) {
-        return bucketSort(array);
-    }
-    return array;
-};
+  if (swaps > 0) {
+    return bucketSort(array);
+  }
+  return array;
+}
 
 console.log(bucketSort([4, 2, 9, 1, 5]));
-// 7. 
+// 7.
 console.log(randy([4, 2, 9, 1, 5]));
-// 8. 
+// 8.
